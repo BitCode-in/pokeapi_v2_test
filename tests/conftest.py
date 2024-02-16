@@ -37,6 +37,18 @@ def pytest_configure(config):
 	config.addinivalue_line('markers', 'locations: Testing the functionality of Item Location (group)')
 	config.addinivalue_line('markers', 'location_endpoint: Testing the functionality of Location (endpoint)')
 	config.addinivalue_line('markers', 'location_area_endpoint: Testing the functionality of Location Area (endpoint)')
+	config.addinivalue_line('markers', 'pal_park_area_endpoint: Testing the functionality of Pal Park Area (endpoint)')
+	config.addinivalue_line('markers', 'region_endpoint: Testing the functionality of Region (endpoint)')
+	config.addinivalue_line('markers', 'machines: Testing the functionality of Machines (group)')
+	config.addinivalue_line('markers', 'machine_endpoint: Testing the functionality of Machine (endpoint)')
+	config.addinivalue_line('markers', 'moves: Testing the functionality of Moves (group)')
+	config.addinivalue_line('markers', 'move_endpoint: Testing the functionality of Move (endpoint)')
+	config.addinivalue_line('markers', 'move_ailment_endpoint: Testing the functionality of Move ailment (endpoint)')
+	config.addinivalue_line('markers', 'move_battle_style_endpoint: Testing the functionality of Move battle style (endpoint)')
+	config.addinivalue_line('markers', 'move_category_endpoint: Testing the functionality of Move category (endpoint)')
+	config.addinivalue_line('markers', 'move_damage_class_endpoint: Testing the functionality of Move damage class (endpoint)')
+	config.addinivalue_line('markers', 'move_learn_method_endpoint: Testing the functionality of Move learn method (endpoint)')
+	config.addinivalue_line('markers', 'move_targets_endpoint: Testing the functionality of Move targets (endpoint)')
 	
 	
 
