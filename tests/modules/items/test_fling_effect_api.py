@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.item_fling_effect_endpoint
 @pytest.mark.parametrize("item_fling_effect_id_or_name", [1, "badly-poison", "invalid_fling_effect"])
 def test_item_fling_effect_endpoint(api_client, item_fling_effect_id_or_name, NamedAPIResource, Effect):
-	response = api_client.get(f"https://pokeapi.co/api/v2/item-fling-effect/{item_fling_effect_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}item-fling-effect/{item_fling_effect_id_or_name}/")
 	if item_fling_effect_id_or_name == "invalid_fling_effect":
 		assert response.status_code == 404
 	else:

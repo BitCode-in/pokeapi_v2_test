@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.version_endpoint
 @pytest.mark.parametrize("version_id_or_name", ["red", "blue", "yellow", "invalid"])
 def test_version_endpoint(api_client, version_id_or_name, fixinstance, Name, NamedAPIResource):
-	response = api_client.get(f"https://pokeapi.co/api/v2/version/{version_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}version/{version_id_or_name}/")
 	if response.status_code == 404:
 		assert version_id_or_name == "invalid"
 	else:

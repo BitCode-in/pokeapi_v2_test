@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.item_fling_pocket_endpoint
 @pytest.mark.parametrize("item_pocket_id_or_name", [1, "misc", "invalid_pocket"])
 def test_item_pocket_endpoint(api_client, item_pocket_id_or_name, fixinstance, NamedAPIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/item-pocket/{item_pocket_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}item-pocket/{item_pocket_id_or_name}/")
 	if item_pocket_id_or_name == "invalid_pocket":
 		assert response.status_code == 404
 	else:

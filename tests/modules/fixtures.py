@@ -73,6 +73,14 @@ def VersionEncounterDetail(NamedAPIResource, Encounter, fixinstance):
 	return check
 
 @pytest.fixture
+def VersionGameIndex(NamedAPIResource, fixinstance):
+	def check(named):
+		fixinstance(named, "game_index", int)
+		if fixinstance(named, "version", dict):
+			NamedAPIResource(named['version'])
+	return check
+
+@pytest.fixture
 def Name(fixinstance):
 	def check(named):
 		fixinstance(named, "name", str)
@@ -110,6 +118,10 @@ def FlavorText(fixinstance):
 		language = named["language"]
 		fixinstance(language, "name", str)
 		fixinstance(language, "url", str)
+		fixinstance(named, "version", dict)
+		version = named["version"]
+		fixinstance(version, "name", str)
+		fixinstance(version, "url", str)
 	return check
 
 @pytest.fixture
