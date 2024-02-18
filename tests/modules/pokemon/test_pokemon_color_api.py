@@ -15,7 +15,6 @@ def test_pokemon_colors_endpoint(api_client, fixinstance, color_id_or_name, Name
 		fixinstance(data, "name", str)
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 		fixinstance(data, "pokemon_species", list)
 		for species in data["pokemon_species"]:

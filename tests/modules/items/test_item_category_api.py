@@ -15,12 +15,12 @@ def test_item_category_endpoint(api_client, item_category_id_or_name, fixinstanc
 		fixinstance(data, "name", str)
 		fixinstance(data, "items", list)
 		for item in data["items"]:
-			assert isinstance(item, dict)
 			NamedAPIResource(item)
+
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
+			
 		if fixinstance(data, "pocket", dict):
 			NamedAPIResource(data["pocket"])
 		

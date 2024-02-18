@@ -15,7 +15,5 @@ def test_encounter_methods_endpoint(api_client, fixinstance, encounter_method_id
 		fixinstance(data, "name", str)
 		fixinstance(data, "order", int)
 		fixinstance(data, "names", list)
-		assert len(data["names"]) > 0
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)

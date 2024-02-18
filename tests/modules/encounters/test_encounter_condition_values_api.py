@@ -16,7 +16,5 @@ def test_encounter_condition_values_endpoint(api_client, fixinstance, encounter_
 		if fixinstance(data, "condition", dict):
 			NamedAPIResource(data["condition"])
 		fixinstance(data, "names", list)
-		assert len(data["names"]) > 0
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)

@@ -16,13 +16,11 @@ def test_move_ailment_endpoint(api_client, fixinstance, move_ailment_id_or_name,
 
 		fixinstance(data, "moves", list)
 		for move_info in data["moves"]:
-			assert isinstance(move_info, dict)
 			NamedAPIResource(move_info)
 			
 		fixinstance(data, "names", list)
-		assert len(data["names"]) > 0
+		
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 		
 

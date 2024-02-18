@@ -15,10 +15,8 @@ def test_egg_group_endpoint(api_client, fixinstance, egg_group_id_or_name, Named
 		fixinstance(data, "name", str)
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 
 		fixinstance(data, "pokemon_species", list)		
 		for pokemon_species_info in data["pokemon_species"]:
-			assert isinstance(pokemon_species_info, dict)
 			NamedAPIResource(pokemon_species_info)

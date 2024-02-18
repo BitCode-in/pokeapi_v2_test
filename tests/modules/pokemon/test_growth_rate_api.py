@@ -16,16 +16,13 @@ def test_growth_rate_endpoint(api_client, fixinstance, growth_rate_id_or_name, N
 		fixinstance(data, "formula", str)
 		fixinstance(data, "descriptions", list)
 		for description in data['descriptions']:
-			assert isinstance(description, dict)
 			Description(description)
 
 		fixinstance(data, "levels", list)
 		for level_info in data["levels"]:
-			assert isinstance(level_info, dict)
 			fixinstance(level_info, "level", int)
 			fixinstance(level_info, "experience", int)
 
 		fixinstance(data, "pokemon_species", list)
 		for pokemon_species_info in data["pokemon_species"]:
-			assert isinstance(pokemon_species_info, dict)
 			NamedAPIResource(pokemon_species_info)

@@ -15,7 +15,6 @@ def test_pokemon_habitats_endpoint(api_client, fixinstance, habitat_id_or_name, 
 		fixinstance(data, "name", str)
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 
 		fixinstance(data, "pokemon_species", list)

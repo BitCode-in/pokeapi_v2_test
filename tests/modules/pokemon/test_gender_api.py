@@ -15,11 +15,9 @@ def test_gender_endpoint(api_client, fixinstance, gender_id_or_name, NamedAPIRes
 		fixinstance(data, "name", str)
 		fixinstance(data, "pokemon_species_details", list)
 		for species_detail in data["pokemon_species_details"]:
-			assert isinstance(species_detail, dict)
 			fixinstance(species_detail, "rate", int)
 			NamedAPIResource(species_detail["pokemon_species"])
 
 		fixinstance(data, "required_for_evolution", list)
 		for required_species in data["required_for_evolution"]:
-			assert isinstance(required_species, dict)
 			NamedAPIResource(required_species)

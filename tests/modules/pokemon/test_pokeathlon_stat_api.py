@@ -15,7 +15,6 @@ def test_pokeathlon_stat_endpoint(api_client, fixinstance, pokeathlon_stat_id_or
 		fixinstance(data, "name", str)
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 
 		fixinstance(data, "affecting_natures", dict)
@@ -25,7 +24,6 @@ def test_pokeathlon_stat_endpoint(api_client, fixinstance, pokeathlon_stat_id_or
 		if "increase" in affecting_natures:
 			fixinstance(affecting_natures, "increase", list)
 			for affect in affecting_natures["increase"]:
-				assert isinstance(affect, dict)
 				fixinstance(affect, "max_change", int)
 				if fixinstance(affect, "nature", dict):
 					NamedAPIResource(affect["nature"])
@@ -33,7 +31,6 @@ def test_pokeathlon_stat_endpoint(api_client, fixinstance, pokeathlon_stat_id_or
 		if "decrease" in affecting_natures:
 			fixinstance(affecting_natures, "decrease", list)
 			for affect in affecting_natures["decrease"]:
-				assert isinstance(affect, dict)
 				fixinstance(affect, "max_change", int)
 				if fixinstance(affect, "nature", dict):
 					NamedAPIResource(affect["nature"])

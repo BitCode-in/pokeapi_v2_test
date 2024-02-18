@@ -26,7 +26,6 @@ def test_berry_endpoint(api_client, berry_id_or_name, fixinstance, NamedAPIResou
 		if data.get("flavors"):
 			assert len(data["flavors"]) > 0
 			for flavor_entry in data["flavors"]:
-				assert isinstance(flavor_entry, dict)
 				fixinstance(flavor_entry, "potency", int)
 				fixinstance(flavor_entry, "flavor", dict)
 				if flavor_entry.get("flavor"):

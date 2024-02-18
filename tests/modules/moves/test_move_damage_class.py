@@ -15,15 +15,12 @@ def test_move_damage_class_endpoint(api_client, fixinstance, move_damage_class_i
 		fixinstance(data, "name", str)
 		fixinstance(data, "descriptions", list)
 		for description in data['descriptions']:
-			assert isinstance(description, dict)
 			Description(description)
 
 		fixinstance(data, "moves", list)
 		for move_info in data["moves"]:
-			assert isinstance(move_info, dict)
 			NamedAPIResource(move_info)
 
 		fixinstance(data, "names", list)
 		for names_info in data["names"]:
-			assert isinstance(names_info, dict)
 			Name(names_info)

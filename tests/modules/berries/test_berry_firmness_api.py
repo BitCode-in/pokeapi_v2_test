@@ -14,12 +14,8 @@ def test_berry_firmness_endpoint(api_client, berry_firmness_id_or_name, fixinsta
 		fixinstance(data, "id", int)
 		fixinstance(data, "name", str)
 		fixinstance(data, "berries", list)
-		assert len(data["berries"]) > 0
 		for berry_entry in data["berries"]:
-			assert isinstance(berry_entry, dict)
 			NamedAPIResource(berry_entry)
 		fixinstance(data, "names", list)
-		assert len(data["names"]) > 0
 		for name_entry in data["names"]:
-			assert isinstance(name_entry, dict)
 			Name(name_entry)

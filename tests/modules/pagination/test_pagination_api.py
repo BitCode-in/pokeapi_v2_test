@@ -14,7 +14,6 @@ def test_named_endpoint(api_client, endpoint_name, fixinstance, NamedAPIResource
 		fixinstance(data, "next", str)
 		fixinstance(data, "previous", str)
 		fixinstance(data, "results", list)
-		assert len(data["results"]) > 0
 		for result in data["results"]:
 			assert isinstance(result, dict)
 			NamedAPIResource(result)

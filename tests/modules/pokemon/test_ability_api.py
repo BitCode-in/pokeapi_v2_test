@@ -19,25 +19,20 @@ def test_ability_endpoint(api_client, fixinstance, ability_id_or_name, NamedAPIR
 
 		fixinstance(data, "names", list)
 		for names_info in data["names"]:
-			assert isinstance(names_info, dict)
 			Name(names_info)
 
 		fixinstance(data, "effect_entries", list)
 		for effect_entries in data["effect_entries"]:
-			assert isinstance(effect_entries, dict)
 			VerboseEffect(effect_entries)
 
 		fixinstance(data, "effect_changes", list)
 		for effect_change in data["effect_changes"]:
-			assert isinstance(effect_change, dict)
 			NamedAPIResource(effect_change["version_group"])
 			for effect_entry in effect_change["effect_entries"]:
-				assert isinstance(effect_entry, dict)
 				Effect(effect_entry)
 
 		fixinstance(data, "flavor_text_entries", list)
 		for flavor_text_entries in data["flavor_text_entries"]:
-			assert isinstance(flavor_text_entries, dict)
 			fixinstance(flavor_text_entries, "flavor_text", str)
 			if fixinstance(flavor_text_entries, "language", dict):
 				NamedAPIResource(flavor_text_entries["language"])
@@ -46,7 +41,6 @@ def test_ability_endpoint(api_client, fixinstance, ability_id_or_name, NamedAPIR
 
 		fixinstance(data, "pokemon", list)
 		for pokemon_entry in data["pokemon"]:
-			assert isinstance(pokemon_entry, dict)
 			fixinstance(pokemon_entry, "is_hidden", bool)
 			fixinstance(pokemon_entry, "slot", int)
 			NamedAPIResource(pokemon_entry["pokemon"])

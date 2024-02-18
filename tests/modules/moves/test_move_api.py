@@ -25,20 +25,17 @@ def test_move_endpoint(api_client, fixinstance, move_id_or_name, NamedAPIResourc
 		if fixinstance(contest_combos, "normal", dict):
 			if fixinstance(contest_combos["normal"], "use_before", list):
 				for use_before in contest_combos["normal"]["use_before"]:
-					assert isinstance(use_before, dict)
 					NamedAPIResource(use_before)
 			if fixinstance(contest_combos["normal"], "use_after", list):
 				for use_after in contest_combos["normal"]["use_after"]:
-					assert isinstance(use_after, dict)
 					NamedAPIResource(use_after)
+
 		if fixinstance(contest_combos, "super", dict):
 			if fixinstance(contest_combos["super"], "use_before", list):
 				for use_before in contest_combos["super"]["use_before"]:
-					assert isinstance(use_before, dict)
 					NamedAPIResource(use_before)
 			if fixinstance(contest_combos["super"], "use_after", list):
 				for use_after in contest_combos["super"]["use_after"]:
-					assert isinstance(use_after, dict)
 					NamedAPIResource(use_after)
 
 		if fixinstance(data, "contest_type", dict):
@@ -68,7 +65,6 @@ def test_move_endpoint(api_client, fixinstance, move_id_or_name, NamedAPIResourc
 
 		fixinstance(data, "flavor_text_entries", list)
 		for flavor_text_entries in data["flavor_text_entries"]:
-			assert isinstance(flavor_text_entries, dict)
 			fixinstance(flavor_text_entries, "flavor_text", str)
 			if fixinstance(flavor_text_entries, "language", dict):
 				NamedAPIResource(flavor_text_entries["language"])
@@ -80,7 +76,6 @@ def test_move_endpoint(api_client, fixinstance, move_id_or_name, NamedAPIResourc
 
 		fixinstance(data, "machines", list)
 		for machines in data["machines"]:
-			assert isinstance(machines, dict)
 			MachineVersionDetail(machines)
 
 		if fixinstance(data, "meta", dict):
@@ -101,7 +96,6 @@ def test_move_endpoint(api_client, fixinstance, move_id_or_name, NamedAPIResourc
 
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 
 		fixinstance(data, "past_values", list)
@@ -112,7 +106,6 @@ def test_move_endpoint(api_client, fixinstance, move_id_or_name, NamedAPIResourc
 			fixinstance(past_values, "pp", int)
 			fixinstance(past_values, "effect_entries", list)
 			for effect_entries in past_values["effect_entries"]:
-				assert isinstance(effect_entries , dict)
 				VerboseEffect(effect_entries)
 			if fixinstance(past_values, "type", dict):
 				NamedAPIResource(past_values["type"])				

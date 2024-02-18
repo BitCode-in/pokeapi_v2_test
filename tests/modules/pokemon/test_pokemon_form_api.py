@@ -37,10 +37,8 @@ def test_pokemon_forms_endpoint(api_client, fixinstance, form_id_or_name, NamedA
 			NamedAPIResource(data["version_group"])
 
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 
 		for form_names_info in data["form_names"]:
-			assert isinstance(form_names_info, dict)
 			Name(form_names_info)
 		

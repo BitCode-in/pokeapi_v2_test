@@ -16,10 +16,8 @@ def test_location_area_endpoint(api_client, fixinstance, location_area_id_or_nam
 		fixinstance(data, "game_index", int)
 		fixinstance(data, "encounter_method_rates", list)
 		for encounter_method_rate_info in data["encounter_method_rates"]:
-			assert isinstance(encounter_method_rate_info, dict)
 			NamedAPIResource(encounter_method_rate_info["encounter_method"])
 			for version_detail_info in encounter_method_rate_info["version_details"]:
-				assert isinstance(version_detail_info, dict)
 				fixinstance(version_detail_info, "rate", int)
 				NamedAPIResource(version_detail_info["version"])
 
@@ -28,14 +26,11 @@ def test_location_area_endpoint(api_client, fixinstance, location_area_id_or_nam
 
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 
 		fixinstance(data, "pokemon_encounters", list)
 		for pokemon_encounter_info in data["pokemon_encounters"]:
-			assert isinstance(pokemon_encounter_info, dict)
 			NamedAPIResource(pokemon_encounter_info["pokemon"])
 			for version_detail_info in pokemon_encounter_info["version_details"]:
-				assert isinstance(version_detail_info, dict)
 				VersionEncounterDetail(version_detail_info)
 		
