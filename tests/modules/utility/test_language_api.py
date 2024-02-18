@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.mark.utility
 @pytest.mark.language_endpoint
 @pytest.mark.parametrize("language_id_or_name", [1, "ja", "invalid_language"])
