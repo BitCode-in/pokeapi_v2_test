@@ -15,10 +15,9 @@ def test_item_pocket_endpoint(api_client, item_pocket_id_or_name, fixinstance, N
 		fixinstance(data, "name", str)
 		fixinstance(data, "categories", list)
 		for category in data["categories"]:
-			assert isinstance(category, dict)
 			NamedAPIResource(category)
+			
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 	

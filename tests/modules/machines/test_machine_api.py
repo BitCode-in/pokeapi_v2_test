@@ -11,8 +11,10 @@ def test_machine_endpoint(api_client, fixinstance, machine_id, NamedAPIResource,
 	fixinstance(data, "id", int)
 	if fixinstance(data, "item", dict):
 		NamedAPIResource(data["item"])
+
 	if fixinstance(data, "move", dict):
 		NamedAPIResource(data["move"])
+		
 	if fixinstance(data, "version_group", dict):
 		NamedAPIResource(data["version_group"])
 	

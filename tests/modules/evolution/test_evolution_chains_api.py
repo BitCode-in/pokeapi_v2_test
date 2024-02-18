@@ -1,5 +1,44 @@
 import pytest
 
+@pytest.fixture
+def ChainLink(fixinstance, NamedAPIResource):
+	def check(chain):
+		fixinstance(chain, "is_baby", bool)
+		if fixinstance(chain, "species", dict):
+			NamedAPIResource(chain['species'])
+		fixinstance(chain, "evolution_details", list)
+
+		for detail in chain["evolution_details"]:
+			if fixinstance(detail, "item", dict):
+				NamedAPIResource(detail["item"])
+			if fixinstance(detail, "trigger", dict):
+				NamedAPIResource(detail["trigger"])
+			fixinstance(detail, "gender", int)
+			if fixinstance(detail, "held_item", dict):
+				NamedAPIResource(detail["held_item"])
+			if fixinstance(detail, "known_move", dict):
+				NamedAPIResource(detail["known_move"])
+			if fixinstance(detail, "known_move_type", dict):
+				NamedAPIResource(detail["known_move_type"])
+			if fixinstance(detail, "location", dict):
+				NamedAPIResource(detail["location"])
+			fixinstance(detail, "min_level", int)
+			fixinstance(detail, "min_happiness", int)
+			fixinstance(detail, "min_beauty", int)
+			fixinstance(detail, "min_affection", int)
+			fixinstance(detail, "needs_overworld_rain", bool)
+			if fixinstance(detail, "party_species", dict):
+				NamedAPIResource(detail["party_species"])
+			if fixinstance(detail, "party_type", dict):
+				NamedAPIResource(detail["party_type"])
+			fixinstance(detail, "relative_physical_stats", int)
+			fixinstance(detail, "time_of_day", str)
+			if fixinstance(detail, "trade_species", dict):
+				NamedAPIResource(detail["trade_species"])
+			fixinstance(detail, "turn_upside_down", bool)
+
+	return check
+
 @pytest.mark.evolution
 @pytest.mark.evolution_chains_endpoint
 @pytest.mark.parametrize("evolution_chain_id", [1, 7, 20, "invalid_evolution_chain"])
@@ -12,40 +51,13 @@ def test_evolution_chain_endpoint(api_client, evolution_chain_id, fixinstance, N
 		data = response.json()
 		assert isinstance(data, dict)
 		fixinstance(data, "id", int)
-		assert "baby_trigger_item" in data
-		fixinstance(data, "chain", dict)
-		ChainLink(data["chain"])
+		if fixinstance(data, "baby_trigger_item", dict):
+			NamedAPIResource(data['baby_trigger_item'])
+		if fixinstance(data, "chain", dict):
+			ChainLink(data["chain"])
 		assert "evolution_details" in data["chain"]
 		fixinstance(data["chain"], "evolves_to", list)
 		evolves_to = data["chain"]["evolves_to"]
 		for evolve_link in evolves_to:
 			ChainLink(evolve_link)
-			fixinstance(evolve_link, "evolution_details", list)
-			for detail in evolve_link["evolution_details"]:
-				if fixinstance(detail, "item", dict):
-					NamedAPIResource(detail["item"])
-				if fixinstance(detail, "trigger", dict):
-					NamedAPIResource(detail["trigger"])
-				fixinstance(detail, "gender", int)
-				if fixinstance(detail, "held_item", dict):
-					NamedAPIResource(detail["held_item"])
-				if fixinstance(detail, "known_move", dict):
-					NamedAPIResource(detail["known_move"])
-				if fixinstance(detail, "known_move_type", dict):
-					NamedAPIResource(detail["known_move_type"])
-				if fixinstance(detail, "location", dict):
-					NamedAPIResource(detail["location"])
-				fixinstance(detail, "min_level", int)
-				fixinstance(detail, "min_happiness", int)
-				fixinstance(detail, "min_beauty", int)
-				fixinstance(detail, "min_affection", int)
-				fixinstance(detail, "needs_overworld_rain", bool)
-				if fixinstance(detail, "party_species", dict):
-					NamedAPIResource(detail["party_species"])
-				if fixinstance(detail, "party_type", dict):
-					NamedAPIResource(detail["party_type"])
-				fixinstance(detail, "relative_physical_stats", int)
-				fixinstance(detail, "time_of_day", str)
-				if fixinstance(detail, "trade_species", dict):
-					NamedAPIResource(detail["trade_species"])
-				fixinstance(detail, "turn_upside_down", bool)
+			

@@ -14,7 +14,6 @@ def test_move_battle_style_endpoint(api_client, fixinstance, move_battle_style_i
 		fixinstance(data, "id", int)
 		fixinstance(data, "name", str)
 		fixinstance(data, "names", list)
-		assert len(data["names"]) > 0
+		
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)

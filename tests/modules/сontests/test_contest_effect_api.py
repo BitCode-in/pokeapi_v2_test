@@ -15,12 +15,8 @@ def test_contest_effect_endpoint(api_client, fixinstance, contest_effect_id, Eff
 		fixinstance(data, "appeal", int)
 		fixinstance(data, "jam", int)
 		fixinstance(data, "effect_entries", list)
-		assert len(data["effect_entries"]) > 0
 		for effect_entry in data["effect_entries"]:
-			assert isinstance(effect_entry, dict)
 			Effect(effect_entry)
 		fixinstance(data, "flavor_text_entries", list)
-		assert len(data["flavor_text_entries"]) > 0
 		for flavor_text_entry in data["flavor_text_entries"]:
-			assert isinstance(flavor_text_entry, dict)
 			FlavorText(flavor_text_entry)

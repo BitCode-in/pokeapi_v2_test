@@ -21,7 +21,6 @@ def test_stat_endpoint(api_client, fixinstance, stat_id_or_name, NamedAPIResourc
 			increase_moves = affecting_moves["increase"]
 			decrease_moves = affecting_moves["decrease"]
 			for move_stat_affect in increase_moves + decrease_moves:
-				assert isinstance(move_stat_affect, dict)
 				fixinstance(move_stat_affect, "change", int)
 				NamedAPIResource(move_stat_affect["move"])
 
@@ -40,6 +39,6 @@ def test_stat_endpoint(api_client, fixinstance, stat_id_or_name, NamedAPIResourc
 		if fixinstance(data, "move_damage_class", dict):
 			NamedAPIResource(data["move_damage_class"])
 
+		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)

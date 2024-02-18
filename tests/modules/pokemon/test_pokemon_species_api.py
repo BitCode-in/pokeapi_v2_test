@@ -55,7 +55,6 @@ def test_pokemon_species_endpoint(api_client, fixinstance, species_id_or_name, N
 
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
 
 		fixinstance(data, "pal_park_encounters", list)

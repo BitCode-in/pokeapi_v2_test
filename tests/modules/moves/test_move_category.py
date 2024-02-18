@@ -15,10 +15,8 @@ def test_move_category_endpoint(api_client, fixinstance, move_category_id_or_nam
 		fixinstance(data, "name", str)
 		fixinstance(data, "descriptions", list)
 		for description in data['descriptions']:
-			assert isinstance(description, dict)
 			Description(description)
 
 		fixinstance(data, "moves", list)
 		for move_info in data["moves"]:
-			assert isinstance(move_info, dict)
 			NamedAPIResource(move_info)

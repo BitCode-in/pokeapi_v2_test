@@ -15,11 +15,10 @@ def test_pal_park_area_endpoint(api_client, fixinstance, pal_park_area_id_or_nam
 		fixinstance(data, "name", str)
 		fixinstance(data, "names", list)
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)
+
 		fixinstance(data, "pokemon_encounters", list)
 		for pokemon_encounter_info in data["pokemon_encounters"]:
-			assert isinstance(pokemon_encounter_info, dict)
 			fixinstance(pokemon_encounter_info, "base_score", int)
 			fixinstance(pokemon_encounter_info, "rate", int)
 			if fixinstance(pokemon_encounter_info, "pokemon_species", dict):

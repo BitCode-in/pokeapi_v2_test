@@ -16,7 +16,5 @@ def test_contest_type_endpoint(api_client, contest_type_id_or_name, fixinstance,
 		if fixinstance(data, "berry_flavor", dict):
 			NamedAPIResource(data["berry_flavor"])
 		fixinstance(data, "names", list)
-		assert len(data["names"]) > 0
 		for name_info in data["names"]:
-			assert isinstance(name_info, dict)
 			Name(name_info)

@@ -4,6 +4,7 @@ pytest.BASE_URL = "https://pokeapi.co/api/v2/"
 
 pytest_plugins = [
 	'tests.modules.fixtures',
+	'tests.modules.utility.common_models_fixtures',
 ]
 
 def pytest_configure(config):
@@ -65,6 +66,9 @@ def pytest_configure(config):
 	config.addinivalue_line('markers', 'pokemon_habitats_endpoint: Testing the functionality of Pokemon Habitats (endpoint)')
 	config.addinivalue_line('markers', 'pokemon_shapes_endpoint: Testing the functionality of Pokemon Shapes (endpoint)')
 	config.addinivalue_line('markers', 'pokemon_species_endpoint: Testing the functionality of Pokemon Species (endpoint)')
+	config.addinivalue_line('markers', 'type_endpoint: Testing the functionality of Ability Type (endpoint)')
+	config.addinivalue_line('markers', 'utility: Testing the functionality of Utility (group)')
+	config.addinivalue_line('markers', 'language_endpoint: Testing the functionality of Language (endpoint)')
 	
 	
 
