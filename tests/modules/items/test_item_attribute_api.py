@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.item_attribute_endpoint
 @pytest.mark.parametrize("item_attribute_id_or_name", [1, "countable", "invalid_attribute"])
 def test_item_attribute_endpoint(api_client, item_attribute_id_or_name, fixinstance, NamedAPIResource, Description, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/item-attribute/{item_attribute_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}item-attribute/{item_attribute_id_or_name}/")
 	if item_attribute_id_or_name == "invalid_attribute":
 		assert response.status_code == 404
 	else:

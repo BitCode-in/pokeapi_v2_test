@@ -49,6 +49,22 @@ def pytest_configure(config):
 	config.addinivalue_line('markers', 'move_damage_class_endpoint: Testing the functionality of Move damage class (endpoint)')
 	config.addinivalue_line('markers', 'move_learn_method_endpoint: Testing the functionality of Move learn method (endpoint)')
 	config.addinivalue_line('markers', 'move_targets_endpoint: Testing the functionality of Move targets (endpoint)')
+	config.addinivalue_line('markers', 'abilities: Testing the abilities functionality')
+	config.addinivalue_line('markers', 'ability_endpoint: Testing the ability endpoints')
+	config.addinivalue_line('markers', 'stats_endpoint: Testing the stats endpoint')
+	config.addinivalue_line('markers', 'characteristic_endpoint: Testing the functionality of Characteristics (endpoint)')
+	config.addinivalue_line('markers', 'egg_group_endpoint: Testing the functionality of Egg Groups (endpoint)')
+	config.addinivalue_line('markers', 'gender_endpoint: Testing the functionality of Genders (endpoint)')
+	config.addinivalue_line('markers', 'growth_rate_endpoint: Testing the functionality of Growth Rates (endpoint)')
+	config.addinivalue_line('markers', 'location_area_encounters_endpoint: Testing the functionality of Location Area Encounters (endpoint)')
+	config.addinivalue_line('markers', 'nature_endpoint: Testing the functionality of Natures (endpoint)')
+	config.addinivalue_line('markers', 'pokeathlon_stat_endpoint: Testing the functionality of Pokeathlon Stats (endpoint)')
+	config.addinivalue_line('markers', 'pokemon_endpoint: Testing the functionality of Pokemon (endpoint)')
+	config.addinivalue_line('markers', 'pokemon_colors_endpoint: Testing the functionality of Pokemon Colors (endpoint)')
+	config.addinivalue_line('markers', 'pokemon_forms_endpoint: Testing the functionality of Pokemon Forms (endpoint)')
+	config.addinivalue_line('markers', 'pokemon_habitats_endpoint: Testing the functionality of Pokemon Habitats (endpoint)')
+	config.addinivalue_line('markers', 'pokemon_shapes_endpoint: Testing the functionality of Pokemon Shapes (endpoint)')
+	config.addinivalue_line('markers', 'pokemon_species_endpoint: Testing the functionality of Pokemon Species (endpoint)')
 	
 	
 

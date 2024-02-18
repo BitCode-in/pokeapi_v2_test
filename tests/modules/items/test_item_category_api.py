@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.item_category_endpoint
 @pytest.mark.parametrize("item_category_id_or_name", [1, "stat-boosts", "invalid_category"])
 def test_item_category_endpoint(api_client, item_category_id_or_name, fixinstance, NamedAPIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/item-category/{item_category_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}item-category/{item_category_id_or_name}/")
 	if item_category_id_or_name == "invalid_category":
 		assert response.status_code == 404
 	else:

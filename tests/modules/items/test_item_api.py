@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.item_endpoint
 @pytest.mark.parametrize("item_id_or_name", ["master-ball", "ultra-ball", "great-ball", "invalid"])
 def test_item_endpoint(api_client, item_id_or_name, fixinstance, NamedAPIResource, VerboseEffect, Name, VersionGroupFlavorText, GenerationGameIndex, APIResource, MachineVersionDetail):
-	response = api_client.get(f"https://pokeapi.co/api/v2/item/{item_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}item/{item_id_or_name}/")
 	if response.status_code == 404:
 		assert item_id_or_name == "invalid"
 	else:

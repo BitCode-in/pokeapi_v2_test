@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.move_endpoint
 @pytest.mark.parametrize("move_id_or_name", [1, "pound", "invalid_move"])
 def test_move_endpoint(api_client, fixinstance, move_id_or_name, NamedAPIResource, APIResource, VerboseEffect, Effect, MachineVersionDetail, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/move/{move_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}move/{move_id_or_name}/")
 	if move_id_or_name == "invalid_move":
 		assert response.status_code == 404
 	else:
