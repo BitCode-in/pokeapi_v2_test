@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.ability_endpoint
 @pytest.mark.parametrize("ability_id_or_name", [1, "stench", "invalid_ability"])
 def test_ability_endpoint(api_client, fixinstance, ability_id_or_name, NamedAPIResource, VerboseEffect, Name, Effect):
-	response = api_client.get(f"https://pokeapi.co/api/v2/ability/{ability_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/ability/{ability_id_or_name}/")
 	if ability_id_or_name == "invalid_ability":
 		assert response.status_code == 404
 	else:

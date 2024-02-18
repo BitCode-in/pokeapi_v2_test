@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.characteristic_endpoint
 @pytest.mark.parametrize("characteristic_id", [1, 2, 3, "invalid_characteristic"])
 def test_characteristic_endpoint(api_client, fixinstance, characteristic_id, NamedAPIResource, Description):
-	response = api_client.get(f"https://pokeapi.co/api/v2/characteristic/{characteristic_id}/")
+	response = api_client.get(f"{pytest.BASE_URL}/characteristic/{characteristic_id}/")
 	if characteristic_id == "invalid_characteristic":
 		assert response.status_code == 404
 	else:

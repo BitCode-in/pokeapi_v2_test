@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.pokemon_endpoint
 @pytest.mark.parametrize("pokemon_id_or_name", [35, "clefairy", "invalid_pokemon"])
 def test_pokemon_endpoint(api_client, fixinstance, pokemon_id_or_name, NamedAPIResource, VersionGameIndex):
-	response = api_client.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/pokemon/{pokemon_id_or_name}/")
 	if pokemon_id_or_name == "invalid_pokemon":
 		assert response.status_code == 404
 	else:

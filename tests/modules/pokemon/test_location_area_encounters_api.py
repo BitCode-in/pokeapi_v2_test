@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.location_area_encounters_endpoint
 @pytest.mark.parametrize("pokemon_id_or_name", ["pikachu", "bulbasaur", "invalid_pokemon"])
 def test_location_area_encounters_endpoint(api_client, fixinstance, pokemon_id_or_name, NamedAPIResource, VersionEncounterDetail):
-    response = api_client.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_id_or_name}/encounters")
+    response = api_client.get(f"{pytest.BASE_URL}/pokemon/{pokemon_id_or_name}/encounters")
     if pokemon_id_or_name == "invalid_pokemon":
         assert response.status_code == 404
     else:

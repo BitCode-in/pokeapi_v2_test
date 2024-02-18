@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.nature_endpoint
 @pytest.mark.parametrize("nature_id_or_name", [2, "bold", "invalid_nature"])
 def test_nature_endpoint(api_client, fixinstance, nature_id_or_name, NamedAPIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/nature/{nature_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/nature/{nature_id_or_name}/")
 	if nature_id_or_name == "invalid_nature":
 		assert response.status_code == 404
 	else:

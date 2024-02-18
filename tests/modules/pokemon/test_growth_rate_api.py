@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.growth_rate_endpoint
 @pytest.mark.parametrize("growth_rate_id_or_name", [1, "slow", "invalid_growth_rate"])
 def test_growth_rate_endpoint(api_client, fixinstance, growth_rate_id_or_name, NamedAPIResource, Description):
-	response = api_client.get(f"https://pokeapi.co/api/v2/growth-rate/{growth_rate_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/growth-rate/{growth_rate_id_or_name}/")
 	if growth_rate_id_or_name == "invalid_growth_rate":
 		assert response.status_code == 404
 	else:

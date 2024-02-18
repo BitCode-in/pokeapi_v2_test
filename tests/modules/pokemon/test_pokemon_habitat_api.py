@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.pokemon_habitats_endpoint
 @pytest.mark.parametrize("habitat_id_or_name", ["cave", 3, "forest", "invalid_habitat"])
 def test_pokemon_habitats_endpoint(api_client, fixinstance, habitat_id_or_name, NamedAPIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/pokemon-habitat/{habitat_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/pokemon-habitat/{habitat_id_or_name}/")
 	if habitat_id_or_name == "invalid_habitat":
 		assert response.status_code == 404
 	else:
