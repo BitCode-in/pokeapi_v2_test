@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.pokemon_forms_endpoint
 @pytest.mark.parametrize("form_id_or_name", ["arceus-bug", "10041", "invalid_form"])
 def test_pokemon_forms_endpoint(api_client, fixinstance, form_id_or_name, NamedAPIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/pokemon-form/{form_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/pokemon-form/{form_id_or_name}/")
 	if form_id_or_name == "invalid_form":
 		assert response.status_code == 404
 	else:

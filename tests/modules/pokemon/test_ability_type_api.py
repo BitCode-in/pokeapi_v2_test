@@ -18,7 +18,7 @@ def TypeRelations(fixinstance, NamedAPIResource):
 @pytest.mark.type_endpoint
 @pytest.mark.parametrize("type_id_or_name", [5, "ground", "invalid_type"])
 def test_type_endpoint(api_client, fixinstance, type_id_or_name, NamedAPIResource, TypeRelations, GenerationGameIndex, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/type/{type_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/type/{type_id_or_name}/")
 	if type_id_or_name == "invalid_type":
 		assert response.status_code == 404
 	else:

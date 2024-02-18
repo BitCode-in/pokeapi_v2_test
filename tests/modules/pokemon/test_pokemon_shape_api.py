@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.pokemon_shapes_endpoint
 @pytest.mark.parametrize("shape_id_or_name", ["ball", "2", "invalid_shape"])
 def test_pokemon_shapes_endpoint(api_client, fixinstance, shape_id_or_name, NamedAPIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/pokemon-shape/{shape_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/pokemon-shape/{shape_id_or_name}/")
 	if shape_id_or_name == "invalid_shape":
 		assert response.status_code == 404
 	else:

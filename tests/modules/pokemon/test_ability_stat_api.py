@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.stats_endpoint
 @pytest.mark.parametrize("stat_id_or_name", [1, "attack", "invalid_stat"])
 def test_stat_endpoint(api_client, fixinstance, stat_id_or_name, NamedAPIResource, APIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/stat/{stat_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/stat/{stat_id_or_name}/")
 	if stat_id_or_name == "invalid_stat":
 		assert response.status_code == 404
 	else:

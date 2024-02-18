@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.gender_endpoint
 @pytest.mark.parametrize("gender_id_or_name", [1, "female", "invalid_gender"])
 def test_gender_endpoint(api_client, fixinstance, gender_id_or_name, NamedAPIResource):
-	response = api_client.get(f"https://pokeapi.co/api/v2/gender/{gender_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/gender/{gender_id_or_name}/")
 	if gender_id_or_name == "invalid_gender":
 		assert response.status_code == 404
 	else:

@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.egg_group_endpoint
 @pytest.mark.parametrize("egg_group_id_or_name", [1, "monster", "invalid_egg_group"])
 def test_egg_group_endpoint(api_client, fixinstance, egg_group_id_or_name, NamedAPIResource, Name):
-	response = api_client.get(f"https://pokeapi.co/api/v2/egg-group/{egg_group_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/egg-group/{egg_group_id_or_name}/")
 	if egg_group_id_or_name == "invalid_egg_group":
 		assert response.status_code == 404
 	else:

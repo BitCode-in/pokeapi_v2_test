@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.pokemon_species_endpoint
 @pytest.mark.parametrize("species_id_or_name", ["wormadam", "413", "invalid_species"])
 def test_pokemon_species_endpoint(api_client, fixinstance, species_id_or_name, NamedAPIResource, APIResource, Name, Description, FlavorText):
-	response = api_client.get(f"https://pokeapi.co/api/v2/pokemon-species/{species_id_or_name}/")
+	response = api_client.get(f"{pytest.BASE_URL}/pokemon-species/{species_id_or_name}/")
 	if species_id_or_name == "invalid_species":
 		assert response.status_code == 404
 	else:
